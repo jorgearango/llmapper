@@ -1,8 +1,8 @@
 # LLMapper
 
-An experiment in using LLMs to draw simple concept maps. Currently, it consists of a simple bash script that uses Simon Willison's [llm](https://github.com/simonw/llm), [strip-tags](https://github.com/simonw/strip-tags), and [ttok](https://github.com/simonw/ttok) tools and [Graphviz](https://graphviz.org). 
+An experiment in using LLMs to draw simple concept maps. Currently, a simple bash script that uses Simon Willison's [llm](https://github.com/simonw/llm), [strip-tags](https://github.com/simonw/strip-tags), and [ttok](https://github.com/simonw/ttok) tools to generate a PNG via [Graphviz](https://graphviz.org). 
 
-LLMapper is a crude prototype for refining the prompts. Which is to say, this isn't (yet) a serious tool. It's a toy for learning about working with generative AI. It's very early days. Among other things, the tool has no error detection or graceful failures. Use at your own risk.
+LLMapper is a crude prototype for refining the prompts. Which is to say, this isn't (yet) a serious tool; it's a toy for learning about generative AI. It's very early days. Among other things, there's no error detection or graceful failures. Use at your own risk.
 
 ## Requirements
 
