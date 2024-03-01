@@ -10,11 +10,11 @@ The script runs in a bash shell in POSIX-compliant operating systems. It's only 
 
 Dependencies:
 
-- llm
-- strip-tags
-- ttok
-- curl
-- graphviz
+- [llm](https://github.com/simonw/llm)
+- [strip-tags](https://github.com/simonw/strip-tags)
+- [ttok](https://github.com/simonw/ttok)
+- [curl](https://curl.se)
+- [graphviz](https://graphviz.org)
 
 ## Usage
 
@@ -30,7 +30,7 @@ Try running it several times. The map will be different each time.
 
 See more samples at [modelor.ai](https://modelor.ai).
 
-# How It Works
+## How It Works
 
 1. curl retrieves the URL's content.
 2. strip-tags filters everything out except the div with the article's body. (On Wikipedia, the class is .mw-content-ltr.)
@@ -39,4 +39,3 @@ See more samples at [modelor.ai](https://modelor.ai).
 5. The summary is cleaned up and piped to an llm prompt that explains the summary more simply and formats it as a series of basic subject-predicate-object sentences.
 6. Those sentences are cleaned up and piped to an llm prompt that formats the summaries as [DOT](https://graphviz.org/doc/info/lang.html) code for rendering in Graphviz.
 7. A sequence of additional calls to Graphviz adds margins and the bottom caption.
-
