@@ -1,6 +1,5 @@
 #!/bin/bash
 
-# LLMapper v0.1 
 # Draw a concept map from a Wikipedia page
 
 # Directory for temporary files; this lets you monitor prompt output
