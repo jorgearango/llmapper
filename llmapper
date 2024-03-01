@@ -3,16 +3,26 @@
 # LLMapper v0.1 
 # Draw a concept map from a Wikipedia page
 
+# Directory for temporary files; this lets you monitor prompt output
 TMPDIR="./tmp"
+
+# Directory to save generated maps. By default, the file will be named
+# output.png. Change that each time so you don't overwrite your maps.
 MAPDIR="./maps"
 
+# Get the title of the page to be mapped; eliminate the "- Wikipedia" string.
 TITLE=$(curl -s $1 | grep -i '<title>' | sed -e 's/<[^>]*>//g' | sed -e 's/ - Wikipedia//g' | awk '{$1=$1;print}')
 
+# Give user feedback - it's working.
 echo "Drawing a map for \"$TITLE\"..."
+
+# Caption to be appended to the bottom of the map.
 CAPTION="\"$TITLE\" by LLMapper • This is an AI-generated concept map. It likely has errors and is published solely for educational purposes."
 
+# Prompt that summarizes article
 PROMPT0="Summarize this article using simple language. Focus on what's most important. Don't refer to the article itself."
 
+# Prompt that turns summary into a set of subject-predicate-object sentences.
 read -r -d '' PROMPT1 << EOM
 You are a teacher explaining a complex subject to a smart ten-year old. I will give you a text to summarize.
 
@@ -47,6 +57,7 @@ If you can't find a subject or object that relates a sentence to a noun in a pre
 This is what you will explain: 
 EOM
 
+# Prompt that turns subject-predicate-object sentences into DOT language.
 read -r -d '' PROMPT2 << EOM
 You are creating concept maps using the DOT diagramming language. You will make a concept map of the ideas in a text using the DOT language. Only use the ideas in the text, do not add or remove. 
 
@@ -115,10 +126,19 @@ These commands must come at the beginning of the diagraph statement, immediately
 This is the text you will convert to DOT language:
 EOM
 
+# Fetch content from URL, focus on one particular region, truncate to 8,000 tokens, pass to LLM for summarization
 curl -s $1 | strip-tags .mw-content-ltr | ttok -t 8000 | llm -s "$PROMPT0" > $TMPDIR/summary.md
+
+# Pass summarized text to prompt that generates subject-predicate-object sentences.
 cat $TMPDIR/summary.md | sed -e "s/'/\\\\'/g" -e 's/"/\\\\"/g' | xargs -J % echo $PROMPT1 % | llm -s -m4 > $TMPDIR/prompt-1-out.md 
+
+# Pass subject-object-predicate sentences to prompt that generate DOT code
 cat $TMPDIR/prompt-1-out.md | sed -e "s/'/\\\\'/g" -e 's/"/\\\\"/g' | xargs -J % echo $PROMPT2 % | llm -s -m4 | sed '/```.*/d' > $TMPDIR/graph.dot
+
+# Wait for a bit
 sleep 10
+
+# Convert the DOT file to a PNG of the map
 dot $TMPDIR/graph.dot -Tpng > $TMPDIR/graph.png
 
 # Remove 1 pixel from right and bottom of image
@@ -135,4 +155,5 @@ convert $TMPDIR/graph.png \
 # Add border
 convert $MAPDIR/output.png -bordercolor white -border 20x20 -crop 100%x100%+0-30 $MAPDIR/output.png
 
+# Open the newly drawn map
 open $MAPDIR/output.png
