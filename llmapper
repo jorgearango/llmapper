@@ -8,6 +8,8 @@ TITLE=$(curl -s $1 | grep -i '<title>' | sed -e 's/<[^>]*>//g' | sed -e 's/ - Wi
 echo "Drawing a map for \"$TITLE\"..."
 CAPTION="\"$TITLE\" by LLMapper • This is an AI-generated concept map. It likely has errors and is published solely for educational purposes."
 
+PROMPT0="Summarize this article using simple language. Focus on what's most important. Don't refer to the article itself."
+
 read -r -d '' PROMPT1 << EOM
 You are a teacher explaining a complex subject to a smart ten-year old. I will give you a text to summarize.
 
@@ -110,7 +112,7 @@ These commands must come at the beginning of the diagraph statement, immediately
 This is the text you will convert to DOT language:
 EOM
 
-curl -s $1 | strip-tags .mw-content-ltr | ttok -t 8000 | llm -s "Summarize this article using simple language. Focus on what's most important. Don't refer to the article itself." > $TMPDIR/summary.md
+curl -s $1 | strip-tags .mw-content-ltr | ttok -t 8000 | llm -s "$PROMPT0" > $TMPDIR/summary.md
 cat $TMPDIR/summary.md | sed -e "s/'/\\\\'/g" -e 's/"/\\\\"/g' | xargs -J % echo $PROMPT1 % | llm -s -m4 > $TMPDIR/prompt-1-out.md 
 cat $TMPDIR/prompt-1-out.md | sed -e "s/'/\\\\'/g" -e 's/"/\\\\"/g' | xargs -J % echo $PROMPT2 % | llm -s -m4 | sed '/```.*/d' > $TMPDIR/graph.dot
 sleep 10
