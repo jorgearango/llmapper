@@ -8,7 +8,7 @@ It's very early days. Among other things, there's no error detection or graceful
 
 ## Requirements
 
-The script runs in a bash shell. It's only been tested in macOS, but will likely work in Linux.
+The script runs in a bash shell. It's only been tested in macOS, but will likely work in Linux with minor changes.
 
 Dependencies:
 
