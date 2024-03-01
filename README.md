@@ -20,7 +20,7 @@ Dependencies:
 
 ## Usage
 
-Pass the script a Wikipedia URL via standard input. E.g.:
+Pass llmapper a Wikipedia URL via standard input. E.g.:
 
 `./llmapper https://en.wikipedia.org/wiki/2001:_A_Space_Odyssey`
 
@@ -35,8 +35,8 @@ See more samples at [modelor.ai](https://modelor.ai).
 ## How It Works
 
 1. curl retrieves the URL's content.
-2. strip-tags filters everything out except the div with the article's body. (On Wikipedia, the class is .mw-content-ltr.)
-3. ttok truncates the article at 8,000 tokens. (GPT limitation.)
+2. strip-tags filters everything out except the div with the article's body.
+3. ttok truncates the article at 8,000 tokens.
 4. llm summarizes the truncated article using GPT 3.5.
 5. The summary is cleaned up and piped to an llm prompt that explains the summary more simply and formats it as a series of basic subject-predicate-object sentences.
 6. Those sentences are cleaned up and piped to an llm prompt that formats the summaries as [DOT](https://graphviz.org/doc/info/lang.html) code for rendering in Graphviz.
