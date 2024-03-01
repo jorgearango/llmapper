@@ -18,7 +18,7 @@ Dependencies:
 - [curl](https://curl.se)
 - [graphviz](https://graphviz.org)
 
-Except where noted, llm calls from the script use GPT-4. If you don't have access to the paid version of OpenAI's API, replace the model (-m) option on the llm calls. 
+Except where noted, llm uses GPT-4 in this script. If you don't have access to the paid version of OpenAI's API, replace the model (-m) option on the llm calls. 
 
 ## Usage
 
