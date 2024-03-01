@@ -1,7 +1,10 @@
 #!/bin/bash
 
-TMPDIR="/Users/jarango/Projects/Modelor/LLMapper/tmp"
-MAPDIR="/Users/jarango/Projects/Modelor/LLMapper/maps"
+# LLMapper v0.1 
+# Draw a concept map from a Wikipedia page
+
+TMPDIR="./tmp"
+MAPDIR="./maps"
 
 TITLE=$(curl -s $1 | grep -i '<title>' | sed -e 's/<[^>]*>//g' | sed -e 's/ - Wikipedia//g' | awk '{$1=$1;print}')
 
