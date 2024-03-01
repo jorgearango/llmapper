@@ -20,7 +20,7 @@ Dependencies:
 
 Pass the script a Wikipedia URL via standard input. E.g.:
 
-./llmapper https://en.wikipedia.org/wiki/2001:_A_Space_Odyssey
+`./llmapper https://en.wikipedia.org/wiki/2001:_A_Space_Odyssey`
 
 Try running it several times. The map will be different each time.
 
