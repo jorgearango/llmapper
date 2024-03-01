@@ -6,7 +6,7 @@ LLMapper is a crude prototype for refining the prompts. Which is to say, this is
 
 ## Requirements
 
-The script runs in a bash shell in POSIX-compliant operating systems. It's only been tested in macOS, but will likely work in Linux.
+The script runs in a bash shell. It's only been tested in macOS, but will likely work in Linux.
 
 Dependencies:
 
