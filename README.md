@@ -26,7 +26,7 @@ Try running it several times. The map will be different each time.
 
 ## Sample Output
 
-![sample-map.png][A concept map of the movie 2001: A Space Odyssey]
+![A concept map of the movie 2001: A Space Odyssey](sample-map.png)
 
 See more samples at [modelor.ai](https://modelor.ai).
 
