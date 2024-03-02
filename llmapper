@@ -42,7 +42,7 @@ echo "Writing DOT code"
 cat $TMPDIR/prompt-1-out.md | sed -e "s/'/\\\\'/g" -e 's/"/\\\\"/g' | xargs -J % echo $PROMPTDIA % | llm -s -m4 | sed '/```.*/d' > $TMPDIR/graph.dot
 
 # Wait for a bit
-sleep 10
+# sleep 10
 
 # Convert the DOT file to a PNG of the map
 echo "Drawing diagram"
