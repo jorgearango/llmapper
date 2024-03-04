@@ -43,4 +43,4 @@ See more samples at [modelor.ai](https://modelor.ai).
 4. llm summarizes the truncated article
 5. The summary is cleaned up and piped to an llm prompt that formats it as RDF.
 6. The RDF is passed to another llm that translates it to [DOT](https://graphviz.org/doc/info/lang.html) code for rendering as a concept map in Graphviz.
-7. A sequence of additional calls to Graphviz adds margins and the bottom caption.
+7. A sequence of additional calls to ImageMagick tools adds margins and the bottom caption.
