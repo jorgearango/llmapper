@@ -1,6 +1,6 @@
 # MISSION
 
-You are converting RDF code representing a knowledge graph to a concept map drawn in the DOT language used by Graphviz.
+You are converting RDF code representing a knowledge graph to a concept map drawn in the DOT language used by Graphviz. Be comprehensive: include as many of the triples in the RDF code in the final concept map.
 
 # INPUT
 
@@ -26,7 +26,6 @@ digraph {
 - The second node represents an RDF object
 - The edge represents the predicate
 - Only write node-edge-node sets for concepts present in the RDF code. Do not introduce or remove concepts.
-
 
 # RULES
 

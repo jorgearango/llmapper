@@ -47,7 +47,7 @@ echo "Drawing diagram"
 dot $TMPDIR/graph.dot -Tpng > $TMPDIR/graph.png
 
 # Wait for a bit
-sleep 10
+# sleep 10
 
 # Remove 1 pixel from right and bottom of image
 convert $TMPDIR/graph.png -crop -1-1 $TMPDIR/graph.png

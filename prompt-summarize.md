@@ -15,9 +15,17 @@ You will be given the text of an article. This will be the sole source of inform
 
 This is the expected format:
 
-TITLE: Main subject of the article
+TITLE: Title of the article
+
+Title is [a very short high-level description of what the article is about.]
 
 Factual sentence one. Factual sentence two. Factual sentence three. Etc.
+
+# METHOD
+
+1. Start by writing a title for the article. It should focus on the main subject. It should be short and simple.
+2. Then answer the question: what's this article about at the highest level? For example, an article about "Concored" is about a type of airplane. Don't include the question itself.
+3. Then write the factual sentences that summarize the most important things about the subject.
 
 # RULES
 

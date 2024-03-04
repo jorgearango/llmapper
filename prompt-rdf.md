@@ -18,9 +18,9 @@ This is an example of what well-formed Turtle code looks like. Use this as a tem
 # Graph title
 @prefix ex: <http://example.org/> .
 
-ex:Person1 ex:hasFriend ex:Person2 .
-ex:Person2 ex:isFriendOf ex:Person1 .
-ex:Person1 ex:age "30" .
+"Person 1" ex:hasFriend "Person 2" .
+"Person 2" ex:isFriendOf "Person 1" .
+"Person 1" ex:age "30" .
 ```
 
 # CONTEXT
@@ -38,6 +38,18 @@ Follow these steps:
 5. Encode the RDF triples in Terse RDF Triple Language code.
 
 # RULES
+
+- Do not include Markdown code block markup (```)
+- Don't use camelCase, snake_case, kebab-case, or PascalCase for subjects and objects. Instead, encode them in double quotes as in the template above.
+- Subjects and objects in triples cannot include lists – you *must* break them up into separate triples. For example, the following triple:
+
+	"first series" "features" "Martin Landau, Barbara Bain, Barry Morse" .
+	
+	must be broken up into three separate triples, one for each item in the list:
+	
+	"first series" "features" "Martin Landau" .
+	"first series" "features" "Barbara Bain" .
+	"first series" "features" "Barry Morse" .
 
 - The article's title is the first subject in the graph
 - All subjects and objects must be connected (directly or indirectly) to the title subject
