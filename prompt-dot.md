@@ -10,6 +10,7 @@ You will be given text that includes RDF code. Ignore everything except RDF code
 
 This is the template for the expected output:
 
+```
 digraph {
 	graph [fontname = "Arial"];
 	node [fontname = "Arial"];
@@ -18,6 +19,11 @@ digraph {
 	
     "a" -> "b"[label="x"];
 }
+```
+
+- "a" is always a subject (noun)
+- "b" is always an object (noun)
+- "x" is always a predicate (verb)
 
 # CONTEXT 
 
@@ -31,7 +37,7 @@ digraph {
 # RULES
 
 - Don't include any comments in the code, especially comments indicating what kind of language this is
-- Convert statements from camelCase to regular spacing – for example, "wasEstablishedIn" would be written "was established in."
+- Convert camelCase to normal English phrases – for example, "wasEstablishedIn" would be written "was established in."
 - Write common nouns (e.g., banana, concert hall) in lowercase
 - Write proper nouns (e.g., Simone Weil, Johannsen) using their standard capitalization
 object in the list
