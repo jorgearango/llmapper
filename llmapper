@@ -23,7 +23,7 @@ PROMPTSUM=$(<./prompt-summarize.md)
 
 # Prompt that turns summary into a set of subject-predicate-object sentences.
 # read -r -d '' PROMPTSTR << EOM
-PROMPTSTR=$(<./prompt-structure.md)
+PROMPTSTR=$(<./prompt-rdf.md)
 
 # Prompt that turns subject-predicate-object sentences into DOT language.
 # read -r -d '' PROMPTDIA << EOM
@@ -33,8 +33,8 @@ PROMPTDIA=$(<./prompt-dot.md)
 echo "Parsing URL"
 curl -s $1 | strip-tags .mw-content-ltr | ttok -t 8000 | llm -s "$PROMPTSUM" > $TMPDIR/summary.md
 
-# Pass summarized text to prompt that generates subject-predicate-object sentences.
-echo "Writing sentences"
+# Pass summarized text to prompt that generates RDF of the summary
+echo "Writing RDF code"
 cat $TMPDIR/summary.md | sed -e "s/'/\\\\'/g" -e 's/"/\\\\"/g' | xargs -J % echo $PROMPTSTR % | llm -s -m4 > $TMPDIR/prompt-1-out.md
 
 # Pass subject-object-predicate sentences to prompt that generate DOT code
