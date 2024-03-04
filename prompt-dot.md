@@ -10,7 +10,6 @@ You will be given text that includes RDF code. Ignore everything except RDF code
 
 This is the template for the expected output:
 
-```
 digraph {
 	graph [fontname = "Arial"];
 	node [fontname = "Arial"];
@@ -19,11 +18,6 @@ digraph {
 	
     "a" -> "b"[label="x"];
 }
-```
-
-- "a" is always a subject (noun)
-- "b" is always an object (noun)
-- "x" is always a predicate (verb)
 
 # CONTEXT 
 
@@ -36,8 +30,19 @@ digraph {
 
 # RULES
 
+- Do not include Markdown code block markup (```)
+- In the template above, "a" is always a subject (noun)
+- In the template above, "b" is always an object (noun)
+- In the template above, "x" is always a predicate (verb)
 - Don't include any comments in the code, especially comments indicating what kind of language this is
-- Convert camelCase to normal English phrases – for example, "wasEstablishedIn" would be written "was established in."
+- Convert camelCase to regular phrases. To convert camelCase to regular phrases:
+
+1. Split the camelCase string at each uppercase letter that is not preceded by whitespace.
+2. Insert spaces between the split words.
+3. Convert the resulting phrase to lowercase.
+
+Example: "camelCaseString" would become "camel case string".
+
 - Write common nouns (e.g., banana, concert hall) in lowercase
 - Write proper nouns (e.g., Simone Weil, Johannsen) using their standard capitalization
 object in the list

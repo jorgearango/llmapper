@@ -39,14 +39,15 @@ cat $TMPDIR/summary.md | sed -e "s/'/\\\\'/g" -e 's/"/\\\\"/g' | xargs -J % echo
 
 # Pass subject-object-predicate sentences to prompt that generate DOT code
 echo "Writing DOT code"
-cat $TMPDIR/prompt-1-out.md | sed -e "s/'/\\\\'/g" -e 's/"/\\\\"/g' | xargs -J % echo $PROMPTDIA % | llm -s -m4 | sed '/```.*/d' > $TMPDIR/graph.dot
-
-# Wait for a bit
-# sleep 10
+# cat $TMPDIR/prompt-1-out.md | sed -e "s/'/\\\\'/g" -e 's/"/\\\\"/g' | xargs -J % echo $PROMPTDIA % | llm -s -m4 | sed '/```.*/d' > $TMPDIR/graph.dot
+cat $TMPDIR/prompt-1-out.md | sed -e "s/'/\\\\'/g" -e 's/"/\\\\"/g' | xargs -J % echo $PROMPTDIA % | llm -s -m4 > $TMPDIR/graph.dot
 
 # Convert the DOT file to a PNG of the map
 echo "Drawing diagram"
 dot $TMPDIR/graph.dot -Tpng > $TMPDIR/graph.png
+
+# Wait for a bit
+sleep 10
 
 # Remove 1 pixel from right and bottom of image
 convert $TMPDIR/graph.png -crop -1-1 $TMPDIR/graph.png
