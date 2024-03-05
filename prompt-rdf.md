@@ -8,22 +8,58 @@ You will be given the text of an article.
 
 # OUTPUT
 
-- You will output well-formed Turtle (Terse RDF Triple Language) code.
-- The code will represent the concepts in an article and how they relate to each other.
-- YOU WILL ONLY OUTPUT RDF CODE. Do not output lists of terms. Do not output comments about the RDF, only the RDF code itself.
-
-This is an example of what well-formed Turtle code looks like. Use this as a template:
+Use this as a template:
 
 ```
-# Graph title
-@prefix ex: <http://example.org/> .
+@prefix ex: <http://example.org/ns#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix rel: <http://example.org/relations#> .
 
-"Person 1" ex:hasFriend "Person 2" .
-"Person 2" ex:isFriendOf "Person 1" .
-"Person 1" ex:age "30" .
+ex:JohnDoe
+    a foaf:Person ;
+    foaf:name "John Doe" ;
+    foaf:mbox <mailto:john.doe@example.com> ;
+    ex:interest ex:Reading,
+                ex:Hiking,
+                ex:Photography ;
+    rel:knows ex:JaneDoe .
+
+ex:JaneDoe
+    a foaf:Person ;
+    foaf:name "Jane Doe" ;
+    foaf:mbox <mailto:jane.doe@example.com> ;
+    ex:interest ex:Painting,
+                ex:Gardening .
+
+ex:Reading
+    a ex:Hobby ;
+    rdfs:label "Reading" .
+
+ex:Hiking
+    a ex:Hobby ;
+    rdfs:label "Hiking" .
+
+ex:Photography
+    a ex:Hobby ;
+    rdfs:label "Photography" .
+
+ex:Painting
+    a ex:Hobby ;
+    rdfs:label "Painting" .
+
+ex:Gardening
+    a ex:Hobby ;
+    rdfs:label "Gardening" .
+
+rel:knows
+    a owl:ObjectProperty ;
+    rdfs:label "knows" .
 ```
+
 
 # CONTEXT
+
+In the template above, JohnDoe is the subject, JaneDoe is the object, and knows is the predicate that joins them.
 
 The text you'll be analyzing is factual. Assume all the information you need is contained in the text. Don't include concepts that aren't present in the text.
 
@@ -39,6 +75,9 @@ Follow these steps:
 
 # RULES
 
+- You will output well-formed RDF code.
+- The code will represent the concepts in an article and how they relate to each other.
+- YOU WILL ONLY OUTPUT RDF CODE. Do not output lists of terms. Do not output comments about the RDF, only the RDF code itself.
 - Do not include Markdown code block markup (```)
 - Don't use camelCase, snake_case, kebab-case, or PascalCase for subjects and objects. Instead, encode them in double quotes as in the template above.
 - Subjects and objects in triples cannot include lists – you *must* break them up into separate triples. For example, the following triple:

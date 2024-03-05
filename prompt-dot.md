@@ -29,7 +29,7 @@ digraph {
 
 # RULES
 
-- Do not include Markdown code block markup (```)
+- Do not include Markdown code block markup
 - In the template above, "a" is always a subject (noun)
 - In the template above, "b" is always an object (noun)
 - In the template above, "x" is always a predicate (verb)
@@ -48,7 +48,9 @@ object in the list
 - Subjects cannot be compound. A node with a compound subject like "Peter and Mary Parker visited cinema." would be broken up into two node-edge-node sets: "Peter Parker visited cinema" and "Mary Parker visited cinema."
 - Objects cannot be compound. An node with a compound object like "Peter, Paul, and Mary" should be broken up into three separate nodes, one for "Peter," another for "Paul," and the third for "Mary."
 - Edges can only be verbs – don't include objects or subjects as part of edges
+- If an "b" includes a phrase from a "x", remove the phrase from "b" - for example, if "x" is "competes on" and "b" is "competes on pga tour latin america," rewrite "b" to say "pga tour latin america"
 - If the label for an edge is "a," change it to "is a" (or "is an," as appropriate)
+- Don't include relationships that describe common words. An example of a conceptual relationship to ignore is "sport is an activity"
 - Subjects cannot be adjectives.
 - Objects cannot be adjectives.
 - Objects cannot include lists. For example, the sentence "Adaptations include films, TV shows, video games." would be written as separate sentences, like this:
@@ -58,8 +60,10 @@ object in the list
 	- Adaptations include video games.
 
 - Predicates cannot be adverbs.
+- Subjects cannot point to themselves - for example, "2011" -> "2011"[label="is a"]; is invalid output, do not include it
 - Don't use pronouns as subjects or objects. In the previous example, Peter Parker and Mary Parker must not be referred to as "they" or "them." Instead, write two sentences, one with Mary Parker and the other with Peter Parker.
 - Don't include information about the article itself, only the subject it covers
+- Don't include the word "foaf"
 - Nodes cannot point to themselves, only to other nodes
 - Concept names and labels should always be enclosed in double quotes
 - Only use the ideas in the RDF code, do not add or remove ideas
