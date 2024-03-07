@@ -67,7 +67,7 @@ The text you'll be analyzing is factual. Assume all the information you need is 
 
 Follow these steps:
 
-1. Identify the key concepts present in the article.
+1. Identify the most important concepts in the article. Ignore common details.
 2. Create RDF entities for each concept identified.
 3. Define relationships between the entities using RDF triples.
 4. Assign unique identifiers (URIs) to the entities and relationships.
