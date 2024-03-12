@@ -31,16 +31,16 @@ PROMPTDIA=$(<./prompt-dot.md)
 
 # Fetch content from URL, focus on one particular region, truncate to 8,000 tokens, pass to LLM for summarization
 echo "Parsing URL"
-curl -s $1 | strip-tags .mw-content-ltr | ttok -t 8000 | llm -s "$PROMPTSUM" > $TMPDIR/summary.md
+curl -s $1 | strip-tags .mw-content-ltr | ttok -t 8000 | llm -s "$PROMPTSUM" > $TMPDIR/summary-out.md
 
 # Pass summarized text to prompt that generates RDF of the summary
 echo "Writing RDF code"
-cat $TMPDIR/summary.md | sed -e "s/'/\\\\'/g" -e 's/"/\\\\"/g' | xargs -J % echo $PROMPTSTR % | llm -s -m4 > $TMPDIR/prompt-1-out.md
+cat $TMPDIR/summary-out.md | sed -e "s/'/\\\\'/g" -e 's/"/\\\\"/g' | xargs -J % echo $PROMPTSTR % | llm -s -m4 > $TMPDIR/rdf-out.md
 
 # Pass subject-object-predicate sentences to prompt that generate DOT code
 echo "Writing DOT code"
 # cat $TMPDIR/prompt-1-out.md | sed -e "s/'/\\\\'/g" -e 's/"/\\\\"/g' | xargs -J % echo $PROMPTDIA % | llm -s -m4 | sed '/```.*/d' > $TMPDIR/graph.dot
-cat $TMPDIR/prompt-1-out.md | sed -e "s/'/\\\\'/g" -e 's/"/\\\\"/g' | xargs -J % echo $PROMPTDIA % | llm -s -m4 > $TMPDIR/graph.dot
+cat $TMPDIR/rdf-out.md | sed -e "s/'/\\\\'/g" -e 's/"/\\\\"/g' | xargs -J % echo $PROMPTDIA % | llm -s -m4 > $TMPDIR/graph.dot
 
 # Convert the DOT file to a PNG of the map
 echo "Drawing diagram"

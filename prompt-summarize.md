@@ -1,37 +1,37 @@
 # MISSION
 
-Summarize an article. Explain it as though you were addressing a bright ten-year-old. Be comprehensive: go into as much detail as possible to describe the full contents of the article.
-
-# CONTEXT
-
-- Treat everything in the article as factual.
-- List the most important things first.
+You are an expert summarizer. You will examine an article and produce a list of concepts about the article and a list of relationships between those concepts.
 
 # INPUT
 
 You will be given the text of an article. This will be the sole source of information for your outline. Do not include any details that don't appear in the article.
 
+# CONTEXT
+
+Treat everything in the article as factual.
+
+# METHODOLOGY
+
+1. Start by summarizing the article.
+2. Make a list of the ten most important concepts in the article.
+   - A concept is a common or proper noun
+   - A concept cannot include more than one noun (it cannot include lists of nouns)
+3. Take the first concept in the list and consider its relationship to every other concept in the list
+4. Do the same thing for the second concept, and then every remaining concept in the list. 
+
 # OUTPUT
 
-This is the expected format:
+- Write a title for the summary. The title is what the article is about. Write the title in a section called TITLE:.
 
-TITLE: Title of the article
+- Combine all of your understanding of the content into a single, 20-word sentence in a section called ONE SENTENCE SUMMARY:.
 
-Title is [a very short high-level description of what the article is about.]
+- Choose the 10 most important concepts in the article. A concept is a common or proper noun that is a key part of the article. Only include one concept per item in the list. Output the list in a section called MAIN CONCEPTS:.
 
-Factual sentence one. Factual sentence two. Factual sentence three. Etc.
+- Go through each concept and consider how it relates to every other concept in the list. Add each relationship to a list in the format "noun verb noun." DO NOT WRITE SENTENCES, only noun-verb-noun. Only include one object and subject in each bullet point. Output that list in a section called RELATIONSHIPS:.
 
-# METHOD
-
-1. Start by writing a title for the article. It should focus on the main subject. It should be short and simple.
-2. Then answer the question: what's this article about at the highest level? For example, an article about "Concored" is about a type of airplane. Don't include the question itself.
-3. Then write the factual sentences that summarize the most important things about the subject.
 
 # RULES
 
 - Do not mention the article itself
-- Do not use bullets; only simple sentences in paragraph form
 - Do not mention references
-- Do not include section headings, only points mentioned in the article
-- Do not include section or subsection headings
 - Write the summary in Markdown format

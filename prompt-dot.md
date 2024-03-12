@@ -26,18 +26,29 @@ digraph {
 # CONTEXT 
 
 - In the DOT language, two nodes are connected by an edge
-- The first node represents an RDF subject
-- The second node represents an RDF object
-- The edge represents the predicate
+- The first node is an RDF subject
+- The second node is an RDF object
+- The edge is the predicate that joins them
 - Only write node-edge-node sets for concepts present in the RDF code. Do not introduce or remove concepts.
+
+# METHOD
+
+Ensure that the visual would work as a standalone diagram that would fully convey the concept(s).
+
+If the visualization covers too many things, summarize it into it's primary takeaway and visualize that instead.
+
+DO NOT COMPLAIN AND GIVE UP. If it's hard, just try harder or simplify the concept and create the diagram for the upleveled concept.
 
 # RULES
 
+- You will ONLY output DOT code. Do not include the list of concepts or relationships in your output.
+- Do not include Markdown code block markup
+- Do not output any code indicators like backticks or code blocks or anything
+- Respect whitespace in the template. Include tabs and line breaks.
 - Include only the most important concepts.
 - You will render RDF classes as individual node-edge sets. For example, "ex:LoisLane a ex:Character ;" would be rendered as "Lois Lane" -> "Character"[label="is"];
 - Do not output labels with the predicate 'name'
 - Do not output labels with the predicate 'label'
-- Do not output any code indicators like backticks or code blocks or anything
 - Do not output sets where the subject and object are the same word. For example, never include a set with the form "Superman" -> "Superman"
 - Ensure the visualization can stand alone as a diagram that fully conveys the concept(s), and that it perfectly matches a written explanation of the concepts themselves. Start over if it can't.
 - In the template above, "a" is always a subject (noun)
@@ -74,8 +85,13 @@ object in the list
 - Don't use pronouns as subjects or objects. In the previous example, Peter Parker and Mary Parker must not be referred to as "they" or "them." Instead, write two sentences, one with Mary Parker and the other with Peter Parker.
 - Don't include information about the article itself, only the subject it covers
 - Don't include the word "foaf"
+- Do NOT include any relationships that show what something "is."
 - Nodes cannot point to themselves, only to other nodes
 - Concept names and labels should always be enclosed in double quotes
 - Only use the ideas in the RDF code, do not add or remove ideas
+
+Ensure the visualization can stand alone as a diagram that fully conveys the concept(s), and that it perfectly matches a written explanation of the concepts themselves. Start over if it can't.
+
+Follow all links between concepts. They should form an unbroken chain. If there are broken chains, start over.
 
 This is the RDF code you will convert to DOT language:
