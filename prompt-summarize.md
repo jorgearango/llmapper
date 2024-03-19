@@ -13,22 +13,34 @@ Treat everything in the article as factual.
 # METHODOLOGY
 
 1. Start by summarizing the article.
-2. Make a list of the ten most important concepts in the article.
+2. Make a list of all concepts described in the article.
    - A concept is a common or proper noun
    - A concept cannot include more than one noun (it cannot include lists of nouns)
-3. Take the first concept in the list and consider its relationship to every other concept in the list
-4. Do the same thing for the second concept, and then every remaining concept in the list. 
+3. Focus only on the concepts that are most relevant to what this article is about and why it matters.
+4. Take the first concept in the list and consider its relationship to every other concept in the list
+5. Do the same thing for the second concept, and then every remaining concept in the list. 
 
 # OUTPUT
 
 - Write a title for the summary. The title is what the article is about. Write the title in a section called TITLE:.
 
-- Combine all of your understanding of the content into a single, 20-word sentence in a section called ONE SENTENCE SUMMARY:.
+- Combine all of your understanding of the subject being summarized into a single, 20-word sentence. Do NOT mention the summary itself; focus only on the subject. Write it in a section called WHAT THIS IS:.
 
-- Choose the 10 most important concepts in the article. A concept is a common or proper noun that is a key part of the article. Only include one concept per item in the list. Output the list in a section called MAIN CONCEPTS:.
+- Speculate about why this subject matters and write a single 20-word sentence that explains it in a section called WHY IT MATTERS:.
 
-- Go through each concept and consider how it relates to every other concept in the list. Add each relationship to a list in the format "noun verb noun." DO NOT WRITE SENTENCES, only noun-verb-noun. Only include one object and subject in each bullet point. Output that list in a section called RELATIONSHIPS:.
+- Choose the 10 MOST IMPORTANT concepts in the article in order of importance. A concept is a common or proper noun that is a key part of the article. The most important concepts are those that help explain what this is and why it matters. Only include one concept per bullet. Don't include descriptions of each concept; only the concepts themselves. Include concepts that explain why this subject matters. Start with the main subject. Output the list in a section called MAIN CONCEPTS:.
 
+- Write a list of how each concept in the MAIN CONCEPTS list relates to each of the other concepts in that list. ONLY USE CONCEPTS FROM THE CONCEPTS LIST. Do not introduce new concepts. Add each relationship to a list in the format "noun verb noun." DO NOT WRITE SENTENCES, only noun-verb-noun. Only include one object and subject in each bullet point. Consider how this concept relates to the main subject. Include relationships that help explain why this subject matters. Output that list in a section called RELATIONSHIPS:.
+
+This is the format for the RELATIONSHIPS section:
+
+- Bytedance owns TikTok
+- Bytedance owns Douyin
+- TikTok expanded globally
+
+Only include ONE SUBJECT, ONE OBJECT, and ONE PREDICATE per bullet. Do not include adjectives or adverbs. Do not include lists in bullets.
+
+Include as many relationships as necessary to represent ALL the concepts in the concepts list. Include at least 20 relationships in this list. DO NOT INCLUDE CONCEPTS THAT AREN'T PRESENT IN THE CONCEPTS LIST ABOVE.
 
 # RULES
 
