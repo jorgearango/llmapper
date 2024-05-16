@@ -96,6 +96,9 @@ Follow these steps:
 - The code will represent the concepts in an article and how they relate to each other.
 - YOU WILL ONLY OUTPUT RDF CODE. Do not output lists of terms. Do not output comments about the RDF, only the RDF code itself.
 - Do not include Markdown code block markup, including backticks
+- The first node in the RDF graph MUST represent the main concept in the article
+- There must be a central concept – that is, a concept that informs the other concepts in the graph, either directly or indirectly
+- The central concept is the main idea of the graph
 - Consolidate concepts that are likely to refer to the same thing by different names. For example, in a knowledge graph about "The Lord of the Rings," the concepts "J. R. R. Tolkien" and "Tolkien" likely refer to the same person. In that case, use only the more specific of the two. (In this case, "J. R. R. Tolkien".)
 - DO NOT INCLUDE SENTENCES IN LABELS. Only include single words or short phrases of up to three words.
 - Do not include articles in labels. For example, convert "The Galactic Empire" to "Galactic Empire"

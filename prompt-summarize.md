@@ -17,8 +17,9 @@ Treat everything in the article as factual.
    - A concept is a common or proper noun
    - A concept cannot include more than one noun (it cannot include lists of nouns)
 3. Focus only on the concepts that are most relevant to what this article is about and why it matters.
-4. Take the first concept in the list and consider its relationship to every other concept in the list
-5. Do the same thing for the second concept, and then every remaining concept in the list. 
+4. The first concept in the list is the main subject of the article
+5. Take the first concept in the list and consider its relationship to every other concept in the list
+6. Do the same thing for the second concept, and then every remaining concept in the list. 
 
 # OUTPUT
 
@@ -28,7 +29,7 @@ Treat everything in the article as factual.
 
 - Speculate about why this subject matters and write a single 20-word sentence that explains it in a section called WHY IT MATTERS:.
 
-- Choose the 10 MOST IMPORTANT concepts in the article in order of importance. A concept is a common or proper noun that is a key part of the article. The most important concepts are those that help explain what this is and why it matters. Only include one concept per bullet. Don't include descriptions of each concept; only the concepts themselves. Include concepts that explain why this subject matters. Start with the main subject. Output the list in a section called MAIN CONCEPTS:.
+- Choose the 10 MOST IMPORTANT concepts in the article in order of importance. A concept is a common or proper noun that is a key part of the article. The most important concepts are those that help explain what this is and why it matters. Only include one concept per bullet. Don't include descriptions of each concept; only the concepts themselves. Include concepts that explain why this subject matters. The first concept in the list is the main subject of the article. Output the list in a section called MAIN CONCEPTS:.
 
 - Write a list of how each concept in the MAIN CONCEPTS list relates to each of the other concepts in that list. ONLY USE CONCEPTS FROM THE CONCEPTS LIST. Do not introduce new concepts. Add each relationship to a list in the format "noun verb noun." DO NOT WRITE SENTENCES, only noun-verb-noun. Only include one object and subject in each bullet point. Consider how this concept relates to the main subject. Include relationships that help explain why this subject matters. Output that list in a section called RELATIONSHIPS:.
 
