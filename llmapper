@@ -31,6 +31,8 @@ PROMPTDIA=$(<./prompt-dot.md)
 
 # Fetch content from URL, focus on one particular region, truncate to 8,000 tokens, pass to LLM for summarization
 echo "Parsing URL"
+
+# ELEMENT=$curl -s $1 | ttok -t 4000 | llm -s "you are a professional HTML developer. Examine the source code for this web page and determine the CLASS or ID attribute of the HTML element that contains most of the content on the page. Ignore global navigation elements or other site-level templates; focus only on the content for this page. Respond ONLY with the name of the CLASS, ID, or HTML tag that contains the main page content. Do not include tick marks, quotes, or any other characters - only the element name" -m 4t
 # curl -s $1 | strip-tags .mw-content-ltr | ttok -t 8000 | llm -s "$PROMPTSUM" > $TMPDIR/summary-out.md
 curl -s $1 | strip-tags .mw-content-ltr | llm -s "$PROMPTSUM" -m 4t > $TMPDIR/summary-out.md
 

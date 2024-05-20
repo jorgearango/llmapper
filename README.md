@@ -25,13 +25,13 @@ Except where noted, llm uses GPT-4 in this script. If you don't have access to t
 
 Pass llmapper a Wikipedia URL. E.g.:
 
-`./llmapper https://en.wikipedia.org/wiki/2001:_A_Space_Odyssey`
+`./llmapper https://en.wikipedia.org/wiki/The_Lord_of_the_Rings`
 
 Try running it several times. The map will be different each time.
 
 ## Sample Output
 
-![A concept map of the movie 2001: A Space Odyssey](sample-map.png)
+![A concept map of The Lord of the Rings](2024-05-16-the-lord-of-the-rings-01.png)
 
 See more samples at [modelor.ai](https://modelor.ai).
 
