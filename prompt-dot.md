@@ -56,7 +56,7 @@ DO NOT COMPLAIN AND GIVE UP. If it's hard, just try harder or simplify the conce
 - You will ONLY output DOT code. Do not include the list of concepts or relationships in your output.
 - Respect whitespace in the template. Include tabs and line breaks.
 - Do not incldue any RDF-specific notation such as "ex:"
-- Do not include Markdown code block markup
+- Do not include Markdown code block markup such as ```
 - Do not output any code indicators like backticks or code blocks or anything
 - Only write node-edge-node sets for concepts present in the RDF code. Do not introduce or remove concepts.
 - DO NOT INCLUDE node sets that explain what kind of thing something is.
