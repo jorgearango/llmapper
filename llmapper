@@ -49,22 +49,15 @@ cat $TMPDIR/rdf-out.md | sed -e "s/'/\\\\'/g" -e 's/"/\\\\"/g' | xargs -J % echo
 echo "Drawing diagram"
 dot $TMPDIR/graph.dot -Tpng > $TMPDIR/graph.png
 
-# Wait for a bit
-# sleep 10
-
-# Remove 1 pixel from right and bottom of image
-convert $TMPDIR/graph.png -crop -1-1 $TMPDIR/graph.png
-
 # Get original image width
 width=$(magick identify -format "%w" $TMPDIR/graph.png)
 
 # Append caption
-convert $TMPDIR/graph.png \
-  \( -size ${width}x -background 'white' -fill 'darkgray' -border 0x40 -bordercolor 'white' -gravity center -pointsize 14 caption:"$CAPTION" \) \
-  -gravity south -append $MAPDIR/output.png
+magick $TMPDIR/graph.png -size ${width}x -background white -fill white -bordercolor white -border 0x40 $TMPDIR/graph.png
+magick $TMPDIR/graph.png -size ${width}x -gravity center -pointsize 14 caption:"$CAPTION" -gravity south -append $TMPDIR/output.png
 
 # Add border
-convert $MAPDIR/output.png -bordercolor white -border 20x20 -crop 100%x100%+0-30 $MAPDIR/output.png
+magick $TMPDIR/output.png -bordercolor white -border 20x20 $MAPDIR/output.png
 
 # Open the newly drawn map
 open $MAPDIR/output.png
