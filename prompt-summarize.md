@@ -14,16 +14,19 @@ You will be given the text of an article. This will be the sole source of inform
 
 Treat everything in the article as factual.
 
+You will be identifying concepts and relationships to build a concept map. In the context of concept mapping, there is a difference between dynamic and static focusing questions. 
+
 # METHODOLOGY
 
-1. Start by summarizing the article.
-2. Make a list of all concepts described in the article.
+1. Start by reading the article.
+2. Write a dynamic focusing question about the article that explores its relevance to humanity in general.
+3. Make a list of all concepts described in the article that help answer this dynamic question.
    - A concept is a common or proper noun
    - A concept cannot include more than one noun (it cannot include lists of nouns)
-3. Focus only on the concepts that are most relevant to what this article is about and why it matters.
-4. The first concept in the list is the main subject of the article
-5. Take the first concept in the list and consider its relationship to every other concept in the list
-6. Do the same thing for the second concept, and then every remaining concept in the list. 
+4. Focus only on the concepts that are most relevant to what this article is about and why it matters — how they help answer the dynamic focusing question.
+5. The first concept in the list is the main subject of the article
+6. Take the first concept in the list and consider its relationship to every other concept in the list
+7. Do the same thing for the second concept, and then every remaining concept in the list. 
 
 # OUTPUT
 
@@ -32,6 +35,8 @@ Treat everything in the article as factual.
 - Combine all of your understanding of the subject being summarized into a single, 20-word sentence. Do NOT mention the summary itself; focus only on the subject. Write it in a section called WHAT THIS IS:.
 
 - Speculate about why this subject matters and write a single 20-word sentence that explains it in a section called WHY IT MATTERS:.
+
+- Write the dynamic focusing question in a section called FOCUSING QUESTION:
 
 - Choose the 10 MOST IMPORTANT concepts in the article in order of importance. A concept is a common or proper noun that is a key part of the article. The most important concepts are those that help explain what this is and why it matters. Only include one concept per bullet. Don't include descriptions of each concept; only the concepts themselves. Include concepts that explain why this subject matters. The first concept in the list is the main subject of the article. Output the list in a section called MAIN CONCEPTS:.
 
@@ -45,7 +50,7 @@ This is the format for the RELATIONSHIPS section:
 
 Only include ONE SUBJECT, ONE OBJECT, and ONE PREDICATE per bullet. Do not include adjectives or adverbs. Do not include lists in bullets.
 
-Include as many relationships as necessary to represent ALL the concepts in the concepts list. Include at least 20 relationships in this list. DO NOT INCLUDE CONCEPTS THAT AREN'T PRESENT IN THE CONCEPTS LIST ABOVE.
+Include as many relationships as necessary to represent ALL the concepts in the concepts list. Include no fewer than 20 relationships in this list. DO NOT INCLUDE CONCEPTS THAT AREN'T PRESENT IN THE CONCEPTS LIST ABOVE.
 
 # RULES
 

@@ -84,11 +84,12 @@ The text you'll be analyzing is factual. Assume all the information you need is 
 
 Follow these steps:
 
-1. Decide what are the most important concepts in the article. The most important concepts are those that are central to the article. Ignore details.
-2. Create RDF entities for each concept.
-3. Define relationships between the entities using RDF triples.
-4. Assign unique identifiers (URIs) to the entities and relationships.
-5. Encode the RDF triples in Terse RDF Triple Language code per the output format specified above.
+1. List the TYPES of CONCEPTS that are present in the article. For example, a "person" is a type of concept.
+2. List the TYPES of RELATIONSHIPS that are present in the article. For example, "employs" is a type of relationship.
+3. Create RDF entities for each concept.
+4. Define relationships between the entities using RDF triples.
+5. Assign unique identifiers (URIs) to the entities and relationships.
+6. Encode the RDF triples in Terse RDF Triple Language code per the output format specified above.
 
 # RULES
 
@@ -101,6 +102,7 @@ Follow these steps:
 - The central concept is the main idea of the graph
 - Consolidate concepts that are likely to refer to the same thing by different names. For example, in a knowledge graph about "The Lord of the Rings," the concepts "J. R. R. Tolkien" and "Tolkien" likely refer to the same person. In that case, use only the more specific of the two. (In this case, "J. R. R. Tolkien".)
 - DO NOT INCLUDE SENTENCES IN LABELS. Only include single words or short phrases of up to three words.
+- DO NOT DEFINE CLASSES in the rdf code – only relationships between existing concepts. Do not include lines such as "ex:Systems a ex:Concept ."
 - Do not include articles in labels. For example, convert "The Galactic Empire" to "Galactic Empire"
 - Do not include honorific or descriptive titles. For example, convert "Jedi Master Obi-Wan Kenobi" to "Obi-Wan Kenobi"
 - Always render labels as regular English phrases in quotes, as in the template above. DO NOT USE camelCase, snake_case, kebab-case, or PascalCase.
